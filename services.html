@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Tshwaragano Entle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 15px 5%;
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #7877c6, #ff7730, #ffce54);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ffce54;
+        }
+
+        .page-header {
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23333" width="100" height="100"/><path fill="%23444" d="M0 0L100 100"/><path fill="%23444" d="M100 0L0 100"/></svg>');
+            background-size: cover;
+            padding-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #7877c6, #ff7730);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #7877c6, #ff7730);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .service-category {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-category:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #7877c6, #ff7730);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .service-category h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ffce54;
+        }
+
+        .service-list {
+            list-style-type: none;
+        }
+
+        .service-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #cccccc;
+        }
+
+        .service-list li:before {
+            content: "✓";
+            color: #7877c6;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .why-choose-us {
+            background: linear-gradient(180deg, transparent, rgba(120, 119, 198, 0.05));
+            padding: 80px 5%;
+            margin: 80px 0;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .advantage-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .advantage-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #7877c6, #ff7730);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .advantage-card p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 5%;
+            background: linear-gradient(180deg, transparent, rgba(255, 119, 48, 0.05));
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #7877c6, #ff7730);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(120, 119, 198, 0.4);
+        }
+
+        footer {
+            padding: 60px 5%;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            color: #888888;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-content">
+            <div class="logo">Tshwaragano</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div>
+            <h1>Our Services</h1>
+            <p>Comprehensive solutions for construction, cleaning, catering, and more</p>
+        </div>
+    </section>
+
+    <section class="services-content">
+        <h2 class="section-title">What We Offer</h2>
+        
+        <div class="services-grid">
+            <div class="service-category">
+                <div class="service-icon">🏗️</div>
+                <h2>Construction Services</h2>
+                <ul class="service-list">
+                    <li>General construction and maintenance</li>
+                    <li>Building construction</li>
+                    <li>Welding & pipe work</li>
+                    <li>Tiling and painting</li>
+                    <li>Fencing and renovations</li>
+                    <li>Plumbing and tubing services</li>
+                    <li>Carpentry services</li>
+                    <li>Air conditioning services</li>
+                    <li>Shop fit-outs</li>
+                    <li>Office fit-outs</li>
+                    <li>Dry wall partitioning</li>
+                    <li>Bathroom renovations</li>
+                </ul>
+            </div>
+            
+            <div class="service-category">
+                <div class="service-icon">🧹</div>
+                <h2>Cleaning Services</h2>
+                <ul class="service-list">
+                    <li>Factory, office & building cleaning</li>
+                    <li>Clean room cleaning</li>
+                    <li>High pressure water cleaning</li>
+                    <li>Carpet cleaning & shampooing</li>
+                    <li>Waste disposal</li>
+                    <li>Window and glass cleaning</li>
+                    <li>Grass cutting maintenance</li>
+                    <li>Landscape work</li>
+                    <li>Industrial cleaning</li>
+                    <li>Garden cleaning</li>
+                    <li>Manpower supply for cleaning</li>
+                </ul>
+            </div>
+            
+            <div class="service-category">
+                <div class="service-icon">🍽️</div>
+                <h2>Catering Services</h2>
+                <ul class="service-list">
+                    <li>Seminars and conferences catering</li>
+                    <li>Luncheons and dinners</li>
+                    <li>Banquets and cocktail parties</li>
+                    <li>Weddings and birthday parties</li>
+                    <li>Government department functions</li>
+                    <li>Corporate functions</li>
+                    <li>Board room functions</li>
+                    <li>Funeral catering</li>
+                    <li>Spit braai (braai/bbq)</li>
+                    <li>Kiddies parties</li>
+                    <li>Baby showers</li>
+                    <li>Matrix dances</li>
+                </ul>
+            </div>
+            
+            <div class="service-category">
+                <div class="service-icon">🎉</div>
+                <h2>Event Management</h2>
+                <ul class="service-list">
+                    <li>Programme design and development</li>
+                    <li>Event, meeting, conference planning</li>
+                    <li>Seminar planning</li>
+                    <li>Project management for events</li>
+                    <li>Venue investigation & selection</li>
+                    <li>Invitations & RSVP management</li>
+                    <li>Accommodation bookings</li>
+                    <li>Entertainment & production services</li>
+                    <li>Event decorations</li>
+                </ul>
+            </div>
+            
+            <div class="service-category">
+                <div class="service-icon">📦</div>
+                <h2>Supply Services</h2>
+                <ul class="service-list">
+                    <li>Supply of commodities</li>
+                    <li>General trading</li>
+                    <li>Industrial supply</li>
+                    <li>Commercial supply</li>
+                    <li>Construction materials supply</li>
+                    <li>Cleaning materials supply</li>
+                </ul>
+            </div>
+            
+            <div class="service-category">
+                <div class="service-icon">🔧</div>
+                <h2>Specialized Services</h2>
+                <ul class="service-list">
+                    <li>Sign erection & writing</li>
+                    <li>Ceiling installation</li>
+                    <li>Partitioning services</li>
+                    <li>Flooring services</li>
+                    <li>Landscaping services</li>
+                    <li>Maintenance work</li>
+                    <li>Outdoor decking</li>
+                    <li>Pipe work</li>
+                    <li>Blocked drain cleaning</li>
+                    <li>Toilet fittings and replacement</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-us">
+        <div class="services-content">
+            <h2 class="section-title">Why Choose Tshwaragano Entle</h2>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">✓</div>
+                    <h3>Quality Assurance</h3>
+                    <p>We maintain the highest standards in all our services, ensuring exceptional results every time.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">⏱️</div>
+                    <h3>Timely Delivery</h3>
+                    <p>We understand the value of time and commit to completing all projects within agreed timelines.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">👷</div>
+                    <h3>Skilled Team</h3>
+                    <p>Our workforce consists of trained professionals with expertise in their respective fields.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">💼</div>
+                    <h3>Fully Compliant</h3>
+                    <p>We are fully registered, tax compliant, and have Compensation Fund good standing.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">🌍</div>
+                    <h3>Community Focused</h3>
+                    <p>As a 100% black-owned business, we're committed to empowering our local community.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">💰</div>
+                    <h3>Competitive Pricing</h3>
+                    <p>We offer high-quality services at competitive rates, providing excellent value for money.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 class="section-title">Ready to Get Started?</h2>
+        <p>Contact us today to discuss your project requirements and get a free quotation</p>
+        <a href="contact.html" class="cta-button">Get in Touch</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">
+                Tshwaragano Entle (Pty) Ltd | Registration Number: 2018/073107/07 | 100% Black Female Owned
+            </p>
+            <p class="footer-text">
+                © 2024 Tshwaragano Entle. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
